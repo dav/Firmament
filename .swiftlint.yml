@@ -1,0 +1,18 @@
+excluded:
+  - FirmamentCore/.build
+  - Firmament.xcodeproj
+  - tmp
+
+identifier_name:
+  excluded:
+    - id
+    - x
+    - y
+    - z
+    - i
+    - j
+    - k
+    - up
+    - ts
+    - t
+    - to

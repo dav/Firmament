@@ -1,0 +1,809 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D3016DCD834E9E4DFA96350 /* TourCaptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F934636BB9441B26727FE /* TourCaptionView.swift */; };
+		0E6C21F59F4133693875330A /* intro-04-blackness.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0A6F075E0B558B671AB761BA /* intro-04-blackness.m4a */; };
+		12527BC8F3A5BD80FDD0E14B /* CameraKeyframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF44E3549A38860D3485D8 /* CameraKeyframe.swift */; };
+		178839E7D67DC3631554BE48 /* intro-03-lines-vanish.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 9CC2B4F9D3B49B5832626305 /* intro-03-lines-vanish.m4a */; };
+		186AB8744D4E920A26D975E8 /* SpaceSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255B9201983D322FC4836A16 /* SpaceSceneBuilder.swift */; };
+		1982DB6250860049A8BF5CE0 /* TourAudioLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE360F37A658F0A6C02E4F0 /* TourAudioLibrary.swift */; };
+		1BC6FBD096569E3BFD341E7E /* TourSkyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9B293144C13954EBC8E78B /* TourSkyView.swift */; };
+		1BFC85049DF1DFF4FF5960E8 /* SkyDomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05811B718167446B22DC5932 /* SkyDomeScene.swift */; };
+		1F4BB9BDD856C015F22476DB /* ARSessionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F43A2F86CA336DE8E98650E /* ARSessionObserver.swift */; };
+		236C4C3915E4869587A7DC5C /* ResolvedTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6F4F05D6F70DA8E5B7F66D /* ResolvedTimeline.swift */; };
+		243B5206825D68AC70E3EBD2 /* TourDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3D00984696F5D21F3C1CA8 /* TourDirector.swift */; };
+		26EBE37143E94F011500807E /* SkyDomeSceneMaterials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E14FE5EA4A8A4046D800887 /* SkyDomeSceneMaterials.swift */; };
+		2B12198E333CA817951ACEE4 /* CubeMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F96A2BE227B48782898A11 /* CubeMesh.swift */; };
+		358E6F536E3F7A14EC35720A /* intro-06-orbit-drawn.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 148EE66284F66179CFE9E5CC /* intro-06-orbit-drawn.m4a */; };
+		35E291253B595A2AD52F29F4 /* intro-08-nodes-appear.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A9CDB3D16FF9FC81A8D2F240 /* intro-08-nodes-appear.m4a */; };
+		3CE1F8B792BA769BF1D88630 /* intro-01-racecar.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 505CF3D0D1121772610CCBE9 /* intro-01-racecar.m4a */; };
+		3D77CA8C07DAA75E5701E18B /* intro-02-no-surroundings.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DD452D364220F261B09EDB4F /* intro-02-no-surroundings.m4a */; };
+		415EC771CED1C2A2D8E163ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F52AB94991CF40D528FBA62 /* Assets.xcassets */; };
+		41FDB2CB2F565BB2F8885750 /* OrreryPiPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9396476F310B083A9629A6 /* OrreryPiPView.swift */; };
+		427B8E5F186AA87102AC4FCA /* OrreryRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2646FEA642A08C14D50969 /* OrreryRenderer.swift */; };
+		43D3F6EBDD768DAB220DB88E /* TrackSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014AEF76EFF15B97806AD68D /* TrackSceneBuilder.swift */; };
+		47D7E945EA39F2C3CE4549A9 /* IntroTourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4140A4DC9FDDEA04C6B1E5 /* IntroTourView.swift */; };
+		48ACC4682B66EF5CA4056813 /* IntroScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275CC5DCE4B696BE398FF761 /* IntroScript.swift */; };
+		49C5621F976CCA117C938297 /* MeldCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD6D4E5CA08B0CA6582DA9F /* MeldCoordinator.swift */; };
+		52876C588D1A1B69292C433D /* ControlBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738DBDC095417DF84D7A5DE4 /* ControlBar.swift */; };
+		5C87284C8CBF782CA6040363 /* RingMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66DBE77246A57C6EF50655 /* RingMesh.swift */; };
+		5D20945AA0C8F6A02019D232 /* IntroGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521324991870C59ED145D9BC /* IntroGateView.swift */; };
+		607C60908C2A92AA22E04260 /* FirmamentCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8D72611B30353B6E3DAA0CCF /* FirmamentCore */; };
+		63330F95A66B00B3EC2DD980 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B99A88372E4CF36BA5A2ED7 /* RootView.swift */; };
+		65A8ECC7B353060BEDF7058F /* RenderModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC1315DD331C9CB8AF0B210 /* RenderModePicker.swift */; };
+		67CCA2907DCAA710AA83C02E /* OrrerySceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC4A1306FFED23619DF4BF /* OrrerySceneBuilder.swift */; };
+		6B1E6CA879E57E2965CD6EA9 /* MeldCameraPose.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC2F654389A3B339A296EE /* MeldCameraPose.swift */; };
+		6B8F73FBAECB766733592CF1 /* UnsupportedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BFBD53C56EAAB06D2E4C99 /* UnsupportedView.swift */; };
+		6C03BC79967E2B7D9E707754 /* PermissionsPrimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93592303251F97E512CDB566 /* PermissionsPrimerView.swift */; };
+		6E178DD92A59EA9895434814 /* GeoFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03823FE47AFC6B0BDC9880D0 /* GeoFix.swift */; };
+		7031DCD5A881CE0947228E46 /* TourMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61699F4EF711B525F7565FC7 /* TourMath.swift */; };
+		745113BC817B7B6E270B7960 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E8E8D73A21EA2FA98B6E5 /* AppSettings.swift */; };
+		793C31DA1D35A88457AD1509 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A4C0E9C17E43007ECEE50 /* SettingsView.swift */; };
+		7C0F933528C29CEA4D2EFB08 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57720CA91CF02CFF80A46B6B /* ContentView.swift */; };
+		83D4E74293E3801812DD55CC /* TiltUpPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F56634593977C9F92085CB /* TiltUpPromptView.swift */; };
+		85DEC56FCCC0A530285BDA89 /* earth-stylized.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DD53C9C164B8275D47417E3 /* earth-stylized.png */; };
+		89125F6A01C53EED469C93DE /* ARSkyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D38E6293B339ABD7AD97F5 /* ARSkyView.swift */; };
+		914ED16DA273D1B7796D0F61 /* FirmamentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE419C610E861987F6938A /* FirmamentApp.swift */; };
+		923C52B547065646E87DA947 /* TourScrubberOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA80C3DB0E4A49B5673F987 /* TourScrubberOverlay.swift */; };
+		938EC25DA46D9C16E9E100A4 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8F4C67DBA43FCEEAA5E9B5 /* TopBar.swift */; };
+		956BA789E57B106688FD86C3 /* TimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1325E827552C1063C2457999 /* TimelineTests.swift */; };
+		A0E4A3D7E7345EA0C0DFE550 /* intro-07-grid-unfolds.m4a in Resources */ = {isa = PBXBuildFile; fileRef = AEFAE3E5AADABF88F8DB1618 /* intro-07-grid-unfolds.m4a */; };
+		A10541EE802E8E468FCA113B /* CubeFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DB955381FA4CA52A1B6E9 /* CubeFace.swift */; };
+		A299D27F6E961041BC64300D /* SpaceSceneState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A132F49F6DB5C660E14FE /* SpaceSceneState.swift */; };
+		A4A48DE72A4467A3051417E5 /* SkyRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10261BAA4027F9A76AF3164B /* SkyRenderer.swift */; };
+		A5ACA692AE64542BFBAEC448 /* IntroPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE55914B1D3D4BB26F3E449 /* IntroPhase.swift */; };
+		A62BC9031FB100B9E10324B6 /* RenderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094C7A608D07D3E9A2758B0A /* RenderConfiguration.swift */; };
+		ABF9D2A84A95268647B426E2 /* TourScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B7B36FEA6B4E0940BA7BA /* TourScript.swift */; };
+		AD44C1B901A590A3B7085D6F /* TourMeldSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20213F9649D07B43AB2E915B /* TourMeldSession.swift */; };
+		AD97A51E3CE7B4731AB2439E /* CubeEdgesMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9810D9C00FA6929212C96706 /* CubeEdgesMesh.swift */; };
+		AF27E63179D0707AE2004241 /* StatusHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1680ED4ED0B93B45D093EB48 /* StatusHUD.swift */; };
+		B0ED004BF089A1E7ED86C26B /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83BE715D9173597B52D5018 /* InfoView.swift */; };
+		B303C7E1CE7B8E33E37DDB78 /* ScaleHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = E618443D36D1246A6A316409 /* ScaleHUD.swift */; };
+		B4D42D04DE559E924FF38C91 /* LogRollerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0050230EBE8A9B78C3A282 /* LogRollerClient.swift */; };
+		B8BE4B7BDEE113257605783D /* intro-09-zoom-home.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3A3027585EE153FCCEB31596 /* intro-09-zoom-home.m4a */; };
+		BDAF25410CD701E7FF9B7133 /* SkyPointingMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785EC9453DF3471A5A39DE9E /* SkyPointingMonitor.swift */; };
+		C264CDDD8773CA7986BBBC5C /* TourRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4815CD00D0C2219FF497C1 /* TourRenderer.swift */; };
+		CD3AF4053A39A314AD559DCA /* IntroFlowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB85E85D05E19828C17607E /* IntroFlowModel.swift */; };
+		D106F78086A82FC86E1CE362 /* LogRollerEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831023D2BE068930C2A2F4F8 /* LogRollerEvent.swift */; };
+		D5D9916633A0985FDA78CD71 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AA49125033FEC0235A29FA /* LocationProvider.swift */; };
+		D65B3478659A29CF458F3943 /* LogRollerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558A4FC6FDF73B2909C78233 /* LogRollerConfig.swift */; };
+		E6D3D02838E7CED3045DC9EF /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D67D01D2B3193017830D1 /* Log.swift */; };
+		F0C5227D55CF20F5519D38D8 /* LatticeLineMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF30A0776FE292618ABA20B /* LatticeLineMesh.swift */; };
+		F28BBA42048EFAEFD5BD6C44 /* intro-05-earth-reveal.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 91A0D90B5271103BD8CD84A7 /* intro-05-earth-reveal.m4a */; };
+		FC2EB1831DA46FFF03F9C30A /* SceneAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F173150182AB82D20CDB8B /* SceneAction.swift */; };
+		FD1D6F0236FB9F2DCED28E20 /* SkyRendererCompute.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA273D9E5743BE82DE355114 /* SkyRendererCompute.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CEE3489A5D79B8C8B3D813B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 335C7FD62EA79B7256C59690 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A517CB9DD67D14AFD06577D9;
+			remoteInfo = Firmament;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		014AEF76EFF15B97806AD68D /* TrackSceneBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSceneBuilder.swift; sourceTree = "<group>"; };
+		037A132F49F6DB5C660E14FE /* SpaceSceneState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceSceneState.swift; sourceTree = "<group>"; };
+		03823FE47AFC6B0BDC9880D0 /* GeoFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoFix.swift; sourceTree = "<group>"; };
+		043F9020029B19721C669182 /* Firmament.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Firmament.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05811B718167446B22DC5932 /* SkyDomeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyDomeScene.swift; sourceTree = "<group>"; };
+		07F96A2BE227B48782898A11 /* CubeMesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeMesh.swift; sourceTree = "<group>"; };
+		094C7A608D07D3E9A2758B0A /* RenderConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderConfiguration.swift; sourceTree = "<group>"; };
+		0A6F075E0B558B671AB761BA /* intro-04-blackness.m4a */ = {isa = PBXFileReference; path = "intro-04-blackness.m4a"; sourceTree = "<group>"; };
+		0BC1315DD331C9CB8AF0B210 /* RenderModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderModePicker.swift; sourceTree = "<group>"; };
+		10261BAA4027F9A76AF3164B /* SkyRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyRenderer.swift; sourceTree = "<group>"; };
+		1325E827552C1063C2457999 /* TimelineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTests.swift; sourceTree = "<group>"; };
+		148EE66284F66179CFE9E5CC /* intro-06-orbit-drawn.m4a */ = {isa = PBXFileReference; path = "intro-06-orbit-drawn.m4a"; sourceTree = "<group>"; };
+		15AA49125033FEC0235A29FA /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
+		1680ED4ED0B93B45D093EB48 /* StatusHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHUD.swift; sourceTree = "<group>"; };
+		1D3D00984696F5D21F3C1CA8 /* TourDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourDirector.swift; sourceTree = "<group>"; };
+		20213F9649D07B43AB2E915B /* TourMeldSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourMeldSession.swift; sourceTree = "<group>"; };
+		255B9201983D322FC4836A16 /* SpaceSceneBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceSceneBuilder.swift; sourceTree = "<group>"; };
+		275CC5DCE4B696BE398FF761 /* IntroScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScript.swift; sourceTree = "<group>"; };
+		2D8F4C67DBA43FCEEAA5E9B5 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
+		30F56634593977C9F92085CB /* TiltUpPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiltUpPromptView.swift; sourceTree = "<group>"; };
+		33F173150182AB82D20CDB8B /* SceneAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneAction.swift; sourceTree = "<group>"; };
+		3A3027585EE153FCCEB31596 /* intro-09-zoom-home.m4a */ = {isa = PBXFileReference; path = "intro-09-zoom-home.m4a"; sourceTree = "<group>"; };
+		3B99A88372E4CF36BA5A2ED7 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		3BE360F37A658F0A6C02E4F0 /* TourAudioLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourAudioLibrary.swift; sourceTree = "<group>"; };
+		3E0050230EBE8A9B78C3A282 /* LogRollerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRollerClient.swift; sourceTree = "<group>"; };
+		3E4081A1C8EF818841BC05EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		424B7B36FEA6B4E0940BA7BA /* TourScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourScript.swift; sourceTree = "<group>"; };
+		4CEC4A1306FFED23619DF4BF /* OrrerySceneBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrrerySceneBuilder.swift; sourceTree = "<group>"; };
+		4F52AB94991CF40D528FBA62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		505CF3D0D1121772610CCBE9 /* intro-01-racecar.m4a */ = {isa = PBXFileReference; path = "intro-01-racecar.m4a"; sourceTree = "<group>"; };
+		50A2F5C4D45566003651AA7E /* FirmamentTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FirmamentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		521324991870C59ED145D9BC /* IntroGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroGateView.swift; sourceTree = "<group>"; };
+		558A4FC6FDF73B2909C78233 /* LogRollerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRollerConfig.swift; sourceTree = "<group>"; };
+		57720CA91CF02CFF80A46B6B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		578E8E8D73A21EA2FA98B6E5 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		5FE55914B1D3D4BB26F3E449 /* IntroPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroPhase.swift; sourceTree = "<group>"; };
+		61699F4EF711B525F7565FC7 /* TourMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourMath.swift; sourceTree = "<group>"; };
+		630A4C0E9C17E43007ECEE50 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		636DB955381FA4CA52A1B6E9 /* CubeFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeFace.swift; sourceTree = "<group>"; };
+		6C2DA5E32E8D27C10911CD3B /* FirmamentCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FirmamentCore; path = FirmamentCore; sourceTree = SOURCE_ROOT; };
+		6DD53C9C164B8275D47417E3 /* earth-stylized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "earth-stylized.png"; sourceTree = "<group>"; };
+		6F9B293144C13954EBC8E78B /* TourSkyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourSkyView.swift; sourceTree = "<group>"; };
+		738DBDC095417DF84D7A5DE4 /* ControlBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlBar.swift; sourceTree = "<group>"; };
+		785EC9453DF3471A5A39DE9E /* SkyPointingMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyPointingMonitor.swift; sourceTree = "<group>"; };
+		7A4140A4DC9FDDEA04C6B1E5 /* IntroTourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroTourView.swift; sourceTree = "<group>"; };
+		82CE419C610E861987F6938A /* FirmamentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmamentApp.swift; sourceTree = "<group>"; };
+		831023D2BE068930C2A2F4F8 /* LogRollerEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRollerEvent.swift; sourceTree = "<group>"; };
+		86AF44E3549A38860D3485D8 /* CameraKeyframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraKeyframe.swift; sourceTree = "<group>"; };
+		8E14FE5EA4A8A4046D800887 /* SkyDomeSceneMaterials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyDomeSceneMaterials.swift; sourceTree = "<group>"; };
+		8F43A2F86CA336DE8E98650E /* ARSessionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSessionObserver.swift; sourceTree = "<group>"; };
+		91A0D90B5271103BD8CD84A7 /* intro-05-earth-reveal.m4a */ = {isa = PBXFileReference; path = "intro-05-earth-reveal.m4a"; sourceTree = "<group>"; };
+		93592303251F97E512CDB566 /* PermissionsPrimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsPrimerView.swift; sourceTree = "<group>"; };
+		947F934636BB9441B26727FE /* TourCaptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourCaptionView.swift; sourceTree = "<group>"; };
+		9810D9C00FA6929212C96706 /* CubeEdgesMesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeEdgesMesh.swift; sourceTree = "<group>"; };
+		9CC2B4F9D3B49B5832626305 /* intro-03-lines-vanish.m4a */ = {isa = PBXFileReference; path = "intro-03-lines-vanish.m4a"; sourceTree = "<group>"; };
+		A41D67D01D2B3193017830D1 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		A9CDB3D16FF9FC81A8D2F240 /* intro-08-nodes-appear.m4a */ = {isa = PBXFileReference; path = "intro-08-nodes-appear.m4a"; sourceTree = "<group>"; };
+		AC2646FEA642A08C14D50969 /* OrreryRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrreryRenderer.swift; sourceTree = "<group>"; };
+		AEFAE3E5AADABF88F8DB1618 /* intro-07-grid-unfolds.m4a */ = {isa = PBXFileReference; path = "intro-07-grid-unfolds.m4a"; sourceTree = "<group>"; };
+		B9BFBD53C56EAAB06D2E4C99 /* UnsupportedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsupportedView.swift; sourceTree = "<group>"; };
+		BA273D9E5743BE82DE355114 /* SkyRendererCompute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyRendererCompute.swift; sourceTree = "<group>"; };
+		BB9396476F310B083A9629A6 /* OrreryPiPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrreryPiPView.swift; sourceTree = "<group>"; };
+		BD4815CD00D0C2219FF497C1 /* TourRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourRenderer.swift; sourceTree = "<group>"; };
+		C7D38E6293B339ABD7AD97F5 /* ARSkyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSkyView.swift; sourceTree = "<group>"; };
+		CAB85E85D05E19828C17607E /* IntroFlowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroFlowModel.swift; sourceTree = "<group>"; };
+		D83BE715D9173597B52D5018 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		DD452D364220F261B09EDB4F /* intro-02-no-surroundings.m4a */ = {isa = PBXFileReference; path = "intro-02-no-surroundings.m4a"; sourceTree = "<group>"; };
+		E618443D36D1246A6A316409 /* ScaleHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleHUD.swift; sourceTree = "<group>"; };
+		EDF30A0776FE292618ABA20B /* LatticeLineMesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatticeLineMesh.swift; sourceTree = "<group>"; };
+		F3BC2F654389A3B339A296EE /* MeldCameraPose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeldCameraPose.swift; sourceTree = "<group>"; };
+		FCD6D4E5CA08B0CA6582DA9F /* MeldCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeldCoordinator.swift; sourceTree = "<group>"; };
+		FD66DBE77246A57C6EF50655 /* RingMesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingMesh.swift; sourceTree = "<group>"; };
+		FD6F4F05D6F70DA8E5B7F66D /* ResolvedTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolvedTimeline.swift; sourceTree = "<group>"; };
+		FEA80C3DB0E4A49B5673F987 /* TourScrubberOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourScrubberOverlay.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F1DC85562937DCE036D1846B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				607C60908C2A92AA22E04260 /* FirmamentCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		020D57F4203DA04CF631BBA0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				043F9020029B19721C669182 /* Firmament.app */,
+				50A2F5C4D45566003651AA7E /* FirmamentTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		34C7D2C012599BBBC01149F4 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				6DD53C9C164B8275D47417E3 /* earth-stylized.png */,
+				8F996DCD948AE21CDF3EA3D4 /* Audio */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		43113F5E74119C5590B8B86A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4F52AB94991CF40D528FBA62 /* Assets.xcassets */,
+				34C7D2C012599BBBC01149F4 /* Intro */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4D417570C151D45A0E30CF4E /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				86AF44E3549A38860D3485D8 /* CameraKeyframe.swift */,
+				FD6F4F05D6F70DA8E5B7F66D /* ResolvedTimeline.swift */,
+				33F173150182AB82D20CDB8B /* SceneAction.swift */,
+				424B7B36FEA6B4E0940BA7BA /* TourScript.swift */,
+			);
+			path = Timeline;
+			sourceTree = "<group>";
+		};
+		5789C253808AA526FDB08D1F /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				FD66DBE77246A57C6EF50655 /* RingMesh.swift */,
+				255B9201983D322FC4836A16 /* SpaceSceneBuilder.swift */,
+				037A132F49F6DB5C660E14FE /* SpaceSceneState.swift */,
+				61699F4EF711B525F7565FC7 /* TourMath.swift */,
+				BD4815CD00D0C2219FF497C1 /* TourRenderer.swift */,
+				014AEF76EFF15B97806AD68D /* TrackSceneBuilder.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		5E834CBEC04523855E66B7E1 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A6CA2F4AEB245872C7039F6E /* FirmamentTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		658B4DCE4956AD2455B892D1 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				6C2DA5E32E8D27C10911CD3B /* FirmamentCore */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		69F70DBFAD6AE8322D14AC24 /* Orrery */ = {
+			isa = PBXGroup;
+			children = (
+				BB9396476F310B083A9629A6 /* OrreryPiPView.swift */,
+				AC2646FEA642A08C14D50969 /* OrreryRenderer.swift */,
+				4CEC4A1306FFED23619DF4BF /* OrrerySceneBuilder.swift */,
+			);
+			path = Orrery;
+			sourceTree = "<group>";
+		};
+		7E4C3BF79143EA7E6FADE308 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				578E8E8D73A21EA2FA98B6E5 /* AppSettings.swift */,
+				8F43A2F86CA336DE8E98650E /* ARSessionObserver.swift */,
+				C7D38E6293B339ABD7AD97F5 /* ARSkyView.swift */,
+				57720CA91CF02CFF80A46B6B /* ContentView.swift */,
+				738DBDC095417DF84D7A5DE4 /* ControlBar.swift */,
+				9810D9C00FA6929212C96706 /* CubeEdgesMesh.swift */,
+				636DB955381FA4CA52A1B6E9 /* CubeFace.swift */,
+				07F96A2BE227B48782898A11 /* CubeMesh.swift */,
+				82CE419C610E861987F6938A /* FirmamentApp.swift */,
+				03823FE47AFC6B0BDC9880D0 /* GeoFix.swift */,
+				3E4081A1C8EF818841BC05EE /* Info.plist */,
+				D83BE715D9173597B52D5018 /* InfoView.swift */,
+				EDF30A0776FE292618ABA20B /* LatticeLineMesh.swift */,
+				15AA49125033FEC0235A29FA /* LocationProvider.swift */,
+				094C7A608D07D3E9A2758B0A /* RenderConfiguration.swift */,
+				0BC1315DD331C9CB8AF0B210 /* RenderModePicker.swift */,
+				3B99A88372E4CF36BA5A2ED7 /* RootView.swift */,
+				E618443D36D1246A6A316409 /* ScaleHUD.swift */,
+				630A4C0E9C17E43007ECEE50 /* SettingsView.swift */,
+				05811B718167446B22DC5932 /* SkyDomeScene.swift */,
+				8E14FE5EA4A8A4046D800887 /* SkyDomeSceneMaterials.swift */,
+				10261BAA4027F9A76AF3164B /* SkyRenderer.swift */,
+				BA273D9E5743BE82DE355114 /* SkyRendererCompute.swift */,
+				1680ED4ED0B93B45D093EB48 /* StatusHUD.swift */,
+				2D8F4C67DBA43FCEEAA5E9B5 /* TopBar.swift */,
+				B9BFBD53C56EAAB06D2E4C99 /* UnsupportedView.swift */,
+				B9071FDFA2588A0EAC226B38 /* Intro */,
+				A4689B353C1A987203147F16 /* Logging */,
+				69F70DBFAD6AE8322D14AC24 /* Orrery */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8F996DCD948AE21CDF3EA3D4 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				505CF3D0D1121772610CCBE9 /* intro-01-racecar.m4a */,
+				DD452D364220F261B09EDB4F /* intro-02-no-surroundings.m4a */,
+				9CC2B4F9D3B49B5832626305 /* intro-03-lines-vanish.m4a */,
+				0A6F075E0B558B671AB761BA /* intro-04-blackness.m4a */,
+				91A0D90B5271103BD8CD84A7 /* intro-05-earth-reveal.m4a */,
+				148EE66284F66179CFE9E5CC /* intro-06-orbit-drawn.m4a */,
+				AEFAE3E5AADABF88F8DB1618 /* intro-07-grid-unfolds.m4a */,
+				A9CDB3D16FF9FC81A8D2F240 /* intro-08-nodes-appear.m4a */,
+				3A3027585EE153FCCEB31596 /* intro-09-zoom-home.m4a */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		9F9635882ECF0CE9C41DD37A /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				FEA80C3DB0E4A49B5673F987 /* TourScrubberOverlay.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		A4689B353C1A987203147F16 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				A41D67D01D2B3193017830D1 /* Log.swift */,
+				3E0050230EBE8A9B78C3A282 /* LogRollerClient.swift */,
+				558A4FC6FDF73B2909C78233 /* LogRollerConfig.swift */,
+				831023D2BE068930C2A2F4F8 /* LogRollerEvent.swift */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
+		A6CA2F4AEB245872C7039F6E /* FirmamentTests */ = {
+			isa = PBXGroup;
+			children = (
+				1325E827552C1063C2457999 /* TimelineTests.swift */,
+			);
+			path = FirmamentTests;
+			sourceTree = "<group>";
+		};
+		B9071FDFA2588A0EAC226B38 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				CAB85E85D05E19828C17607E /* IntroFlowModel.swift */,
+				521324991870C59ED145D9BC /* IntroGateView.swift */,
+				5FE55914B1D3D4BB26F3E449 /* IntroPhase.swift */,
+				275CC5DCE4B696BE398FF761 /* IntroScript.swift */,
+				7A4140A4DC9FDDEA04C6B1E5 /* IntroTourView.swift */,
+				F3BC2F654389A3B339A296EE /* MeldCameraPose.swift */,
+				FCD6D4E5CA08B0CA6582DA9F /* MeldCoordinator.swift */,
+				93592303251F97E512CDB566 /* PermissionsPrimerView.swift */,
+				785EC9453DF3471A5A39DE9E /* SkyPointingMonitor.swift */,
+				30F56634593977C9F92085CB /* TiltUpPromptView.swift */,
+				3BE360F37A658F0A6C02E4F0 /* TourAudioLibrary.swift */,
+				947F934636BB9441B26727FE /* TourCaptionView.swift */,
+				1D3D00984696F5D21F3C1CA8 /* TourDirector.swift */,
+				20213F9649D07B43AB2E915B /* TourMeldSession.swift */,
+				6F9B293144C13954EBC8E78B /* TourSkyView.swift */,
+				9F9635882ECF0CE9C41DD37A /* Debug */,
+				5789C253808AA526FDB08D1F /* Scene */,
+				4D417570C151D45A0E30CF4E /* Timeline */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		C514DD9131984796338520A6 = {
+			isa = PBXGroup;
+			children = (
+				7E4C3BF79143EA7E6FADE308 /* App */,
+				658B4DCE4956AD2455B892D1 /* Packages */,
+				43113F5E74119C5590B8B86A /* Resources */,
+				5E834CBEC04523855E66B7E1 /* Tests */,
+				020D57F4203DA04CF631BBA0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7981096F112E65CE5C980248 /* FirmamentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4EB3161DF83E20934D95C05 /* Build configuration list for PBXNativeTarget "FirmamentTests" */;
+			buildPhases = (
+				1194CBADB024C49C530828C4 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1CD9894B6EBFF2441CB0C183 /* PBXTargetDependency */,
+			);
+			name = FirmamentTests;
+			packageProductDependencies = (
+			);
+			productName = FirmamentTests;
+			productReference = 50A2F5C4D45566003651AA7E /* FirmamentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A517CB9DD67D14AFD06577D9 /* Firmament */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C97C6AA57C76689FF2E12FFB /* Build configuration list for PBXNativeTarget "Firmament" */;
+			buildPhases = (
+				044F83531DD91C78D0A8D531 /* Sources */,
+				A66FDA297BAA585D463846FC /* Resources */,
+				F1DC85562937DCE036D1846B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Firmament;
+			packageProductDependencies = (
+				8D72611B30353B6E3DAA0CCF /* FirmamentCore */,
+			);
+			productName = Firmament;
+			productReference = 043F9020029B19721C669182 /* Firmament.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		335C7FD62EA79B7256C59690 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					7981096F112E65CE5C980248 = {
+						DevelopmentTeam = 8U7J5S7RGC;
+						ProvisioningStyle = Automatic;
+					};
+					A517CB9DD67D14AFD06577D9 = {
+						DevelopmentTeam = 8U7J5S7RGC;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E4EAC80AD4A49672DB77AB88 /* Build configuration list for PBXProject "Firmament" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = C514DD9131984796338520A6;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				DDD6EA95393A24A4D9666D01 /* XCLocalSwiftPackageReference "FirmamentCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 020D57F4203DA04CF631BBA0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A517CB9DD67D14AFD06577D9 /* Firmament */,
+				7981096F112E65CE5C980248 /* FirmamentTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A66FDA297BAA585D463846FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				415EC771CED1C2A2D8E163ED /* Assets.xcassets in Resources */,
+				85DEC56FCCC0A530285BDA89 /* earth-stylized.png in Resources */,
+				3CE1F8B792BA769BF1D88630 /* intro-01-racecar.m4a in Resources */,
+				3D77CA8C07DAA75E5701E18B /* intro-02-no-surroundings.m4a in Resources */,
+				178839E7D67DC3631554BE48 /* intro-03-lines-vanish.m4a in Resources */,
+				0E6C21F59F4133693875330A /* intro-04-blackness.m4a in Resources */,
+				F28BBA42048EFAEFD5BD6C44 /* intro-05-earth-reveal.m4a in Resources */,
+				358E6F536E3F7A14EC35720A /* intro-06-orbit-drawn.m4a in Resources */,
+				A0E4A3D7E7345EA0C0DFE550 /* intro-07-grid-unfolds.m4a in Resources */,
+				35E291253B595A2AD52F29F4 /* intro-08-nodes-appear.m4a in Resources */,
+				B8BE4B7BDEE113257605783D /* intro-09-zoom-home.m4a in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		044F83531DD91C78D0A8D531 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F4BB9BDD856C015F22476DB /* ARSessionObserver.swift in Sources */,
+				89125F6A01C53EED469C93DE /* ARSkyView.swift in Sources */,
+				745113BC817B7B6E270B7960 /* AppSettings.swift in Sources */,
+				12527BC8F3A5BD80FDD0E14B /* CameraKeyframe.swift in Sources */,
+				7C0F933528C29CEA4D2EFB08 /* ContentView.swift in Sources */,
+				52876C588D1A1B69292C433D /* ControlBar.swift in Sources */,
+				AD97A51E3CE7B4731AB2439E /* CubeEdgesMesh.swift in Sources */,
+				A10541EE802E8E468FCA113B /* CubeFace.swift in Sources */,
+				2B12198E333CA817951ACEE4 /* CubeMesh.swift in Sources */,
+				914ED16DA273D1B7796D0F61 /* FirmamentApp.swift in Sources */,
+				6E178DD92A59EA9895434814 /* GeoFix.swift in Sources */,
+				B0ED004BF089A1E7ED86C26B /* InfoView.swift in Sources */,
+				CD3AF4053A39A314AD559DCA /* IntroFlowModel.swift in Sources */,
+				5D20945AA0C8F6A02019D232 /* IntroGateView.swift in Sources */,
+				A5ACA692AE64542BFBAEC448 /* IntroPhase.swift in Sources */,
+				48ACC4682B66EF5CA4056813 /* IntroScript.swift in Sources */,
+				47D7E945EA39F2C3CE4549A9 /* IntroTourView.swift in Sources */,
+				F0C5227D55CF20F5519D38D8 /* LatticeLineMesh.swift in Sources */,
+				D5D9916633A0985FDA78CD71 /* LocationProvider.swift in Sources */,
+				E6D3D02838E7CED3045DC9EF /* Log.swift in Sources */,
+				B4D42D04DE559E924FF38C91 /* LogRollerClient.swift in Sources */,
+				D65B3478659A29CF458F3943 /* LogRollerConfig.swift in Sources */,
+				D106F78086A82FC86E1CE362 /* LogRollerEvent.swift in Sources */,
+				6B1E6CA879E57E2965CD6EA9 /* MeldCameraPose.swift in Sources */,
+				49C5621F976CCA117C938297 /* MeldCoordinator.swift in Sources */,
+				41FDB2CB2F565BB2F8885750 /* OrreryPiPView.swift in Sources */,
+				427B8E5F186AA87102AC4FCA /* OrreryRenderer.swift in Sources */,
+				67CCA2907DCAA710AA83C02E /* OrrerySceneBuilder.swift in Sources */,
+				6C03BC79967E2B7D9E707754 /* PermissionsPrimerView.swift in Sources */,
+				A62BC9031FB100B9E10324B6 /* RenderConfiguration.swift in Sources */,
+				65A8ECC7B353060BEDF7058F /* RenderModePicker.swift in Sources */,
+				236C4C3915E4869587A7DC5C /* ResolvedTimeline.swift in Sources */,
+				5C87284C8CBF782CA6040363 /* RingMesh.swift in Sources */,
+				63330F95A66B00B3EC2DD980 /* RootView.swift in Sources */,
+				B303C7E1CE7B8E33E37DDB78 /* ScaleHUD.swift in Sources */,
+				FC2EB1831DA46FFF03F9C30A /* SceneAction.swift in Sources */,
+				793C31DA1D35A88457AD1509 /* SettingsView.swift in Sources */,
+				1BFC85049DF1DFF4FF5960E8 /* SkyDomeScene.swift in Sources */,
+				26EBE37143E94F011500807E /* SkyDomeSceneMaterials.swift in Sources */,
+				BDAF25410CD701E7FF9B7133 /* SkyPointingMonitor.swift in Sources */,
+				A4A48DE72A4467A3051417E5 /* SkyRenderer.swift in Sources */,
+				FD1D6F0236FB9F2DCED28E20 /* SkyRendererCompute.swift in Sources */,
+				186AB8744D4E920A26D975E8 /* SpaceSceneBuilder.swift in Sources */,
+				A299D27F6E961041BC64300D /* SpaceSceneState.swift in Sources */,
+				AF27E63179D0707AE2004241 /* StatusHUD.swift in Sources */,
+				83D4E74293E3801812DD55CC /* TiltUpPromptView.swift in Sources */,
+				938EC25DA46D9C16E9E100A4 /* TopBar.swift in Sources */,
+				1982DB6250860049A8BF5CE0 /* TourAudioLibrary.swift in Sources */,
+				0D3016DCD834E9E4DFA96350 /* TourCaptionView.swift in Sources */,
+				243B5206825D68AC70E3EBD2 /* TourDirector.swift in Sources */,
+				7031DCD5A881CE0947228E46 /* TourMath.swift in Sources */,
+				AD44C1B901A590A3B7085D6F /* TourMeldSession.swift in Sources */,
+				C264CDDD8773CA7986BBBC5C /* TourRenderer.swift in Sources */,
+				ABF9D2A84A95268647B426E2 /* TourScript.swift in Sources */,
+				923C52B547065646E87DA947 /* TourScrubberOverlay.swift in Sources */,
+				1BC6FBD096569E3BFD341E7E /* TourSkyView.swift in Sources */,
+				43D3F6EBDD768DAB220DB88E /* TrackSceneBuilder.swift in Sources */,
+				6B8F73FBAECB766733592CF1 /* UnsupportedView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1194CBADB024C49C530828C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				956BA789E57B106688FD86C3 /* TimelineTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1CD9894B6EBFF2441CB0C183 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A517CB9DD67D14AFD06577D9 /* Firmament */;
+			targetProxy = CEE3489A5D79B8C8B3D813B5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		165A55A75759D3743A044832 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.akuaku.FirmamentTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Firmament.app/Firmament";
+			};
+			name = Debug;
+		};
+		65485E85BAC63E9304CC872B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8U7J5S7RGC;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		660AD6ADFD67A4DB758FE0AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8U7J5S7RGC;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		72D0A1BD5694DEA2BA6F231D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 4;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LM_SKIP_METADATA_EXTRACTION = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.akuaku.Firmament;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		7417F1D5CB3B861CDA30C4D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 4;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LM_SKIP_METADATA_EXTRACTION = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.akuaku.Firmament;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		9F8FE1A0029C3748A41B50DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.akuaku.FirmamentTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Firmament.app/Firmament";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C97C6AA57C76689FF2E12FFB /* Build configuration list for PBXNativeTarget "Firmament" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7417F1D5CB3B861CDA30C4D2 /* Debug */,
+				72D0A1BD5694DEA2BA6F231D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E4EAC80AD4A49672DB77AB88 /* Build configuration list for PBXProject "Firmament" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				660AD6ADFD67A4DB758FE0AD /* Debug */,
+				65485E85BAC63E9304CC872B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E4EB3161DF83E20934D95C05 /* Build configuration list for PBXNativeTarget "FirmamentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				165A55A75759D3743A044832 /* Debug */,
+				9F8FE1A0029C3748A41B50DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		DDD6EA95393A24A4D9666D01 /* XCLocalSwiftPackageReference "FirmamentCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = FirmamentCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8D72611B30353B6E3DAA0CCF /* FirmamentCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirmamentCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 335C7FD62EA79B7256C59690 /* Project object */;
+}

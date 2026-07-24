@@ -1,0 +1,76 @@
+name: Firmament
+options:
+  bundleIdPrefix: org.akuaku
+  deploymentTarget:
+    iOS: "26.0"
+  createIntermediateGroups: true
+packages:
+  FirmamentCore:
+    path: FirmamentCore
+settings:
+  base:
+    DEVELOPMENT_TEAM: 8U7J5S7RGC
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_VERSION: "6.0"
+    SWIFT_APPROACHABLE_CONCURRENCY: YES
+    SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+    IPHONEOS_DEPLOYMENT_TARGET: "26.0"
+    TARGETED_DEVICE_FAMILY: "1"
+targets:
+  Firmament:
+    type: application
+    platform: iOS
+    sources:
+      - App
+      - path: Resources
+        buildPhase: resources
+    dependencies:
+      - package: FirmamentCore
+    scheme:
+      testTargets:
+        - FirmamentTests
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: Dav's Firmament
+        CFBundleShortVersionString: "1.0"
+        # Build number. Sourced from CURRENT_PROJECT_VERSION (below) so it
+        # survives xcodegen regenerating this file; `make archive` bumps it.
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        # Blank default launch screen (just the system background). An empty
+        # dict is the minimal declaration iOS needs to render at native
+        # resolution; no image, so nothing to jerk from at first frame.
+        UILaunchScreen: {}
+        NSCameraUsageDescription: Firmament draws the solar-system lattice over your camera's view of the sky.
+        NSLocationWhenInUseUsageDescription: Your location determines which lattice nodes are above your horizon right now.
+        NSLocalNetworkUsageDescription: Firmament sends developer diagnostic logs to a LogRoller server on your local network (debug builds only).
+        UIRequiredDeviceCapabilities: [arkit]
+        ITSAppUsesNonExemptEncryption: false
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: org.akuaku.Firmament
+        LM_SKIP_METADATA_EXTRACTION: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        # Build number source of truth. `make archive` increments this before
+        # each archive; xcodegen writes it into CFBundleVersion.
+        CURRENT_PROJECT_VERSION: 4
+        # iPhone only. Must be set at the target level: xcodegen injects a
+        # per-target preset default of "1,2" that overrides the project-level
+        # setting, which is what shipped iPad support in the first archive.
+        TARGETED_DEVICE_FAMILY: "1"
+  FirmamentTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - Tests/FirmamentTests
+    dependencies:
+      - target: Firmament
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: org.akuaku.FirmamentTests
+        GENERATE_INFOPLIST_FILE: YES
