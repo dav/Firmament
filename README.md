@@ -104,6 +104,10 @@ swift test --package-path FirmamentCore
 
 Firmament collects nothing. Your GPS position and camera feed are used only on-device to render the sky and never leave the phone — the release app makes **zero** network requests. See the [privacy policy](html/privacy-policy.html).
 
+## License
+
+Source-available under the **[PolyForm Noncommercial License 1.0.0](LICENSE.md)**. You're free to use, study, modify, and share it for any **noncommercial** purpose — personal, research, education, hobby. Selling it, or any other commercial use, is not permitted.
+
 ## Links
 
 - **App Store:** https://apps.apple.com/us/app/davs-celestial-firmament/id6790281555
@@ -113,5 +117,5 @@ Firmament collects nothing. Your GPS position and camera feed are used only on-d
 ---
 
 <div align="center">
-<sub>© 2026 Dav. Source published for reference; not licensed for redistribution.</sub>
+<sub>© 2026 Dav Yaginuma · <a href="LICENSE.md">PolyForm Noncommercial License 1.0.0</a></sub>
 </div>
