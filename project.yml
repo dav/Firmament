@@ -33,7 +33,10 @@ targets:
       path: App/Info.plist
       properties:
         CFBundleDisplayName: Dav's Firmament
-        CFBundleShortVersionString: "1.0"
+        # Marketing version. Must exceed the version already on the App Store:
+        # once a version reaches READY_FOR_SALE, Apple rejects any further build
+        # uploaded under it (altool error 90062). 1.0 shipped 2026-07-12.
+        CFBundleShortVersionString: "1.0.1"
         # Build number. Sourced from CURRENT_PROJECT_VERSION (below) so it
         # survives xcodegen regenerating this file; `make archive` bumps it.
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
@@ -62,7 +65,7 @@ targets:
         # went up from the Organizer without the bump landing back here, so the
         # next bump would have produced a duplicate build number and been
         # rejected. `make deploy-testers` keeps the two in step from now on.
-        CURRENT_PROJECT_VERSION: 5
+        CURRENT_PROJECT_VERSION: 6
         # iPhone only. Must be set at the target level: xcodegen injects a
         # per-target preset default of "1,2" that overrides the project-level
         # setting, which is what shipped iPad support in the first archive.
