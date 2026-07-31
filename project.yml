@@ -58,7 +58,11 @@ targets:
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         # Build number source of truth. `make archive` increments this before
         # each archive; xcodegen writes it into CFBundleVersion.
-        CURRENT_PROJECT_VERSION: 4
+        # Resynced to 5 to match what is actually on TestFlight — earlier builds
+        # went up from the Organizer without the bump landing back here, so the
+        # next bump would have produced a duplicate build number and been
+        # rejected. `make deploy-testers` keeps the two in step from now on.
+        CURRENT_PROJECT_VERSION: 5
         # iPhone only. Must be set at the target level: xcodegen injects a
         # per-target preset default of "1,2" that overrides the project-level
         # setting, which is what shipped iPad support in the first archive.
