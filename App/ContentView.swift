@@ -11,6 +11,11 @@ struct ContentView: View {
     @State private var isNearRingWindowVisible = true
     @State private var isShowingSettings = false
     @State private var isShowingInfo = false
+    @State private var flareModel = FlareModel()
+    /// How often the aim guide resamples the camera pose — fast enough that the
+    /// turn/tilt readout keeps up with the user's hands, and only while the
+    /// guide is actually up.
+    private static let aimSampleInterval = Duration.milliseconds(50)
 
     // Telemetry throttle state — keeps the 2 Hz render loop from flooding LogRoller.
     @State private var lastSummaryAt: Date?
@@ -45,17 +50,35 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.top, 4)
                 Spacer()
-                // The PiP orrery only exists while the chrome is up — during
-                // the intro tour its second RealityKit surface must not
-                // compete with the tour's own non-AR view.
-                if flow.isChromeVisible {
+                // The aim guide takes the orrery's slot rather than stacking
+                // above it: both are talking about where you are in the orbit,
+                // and two glass panels there crowds the sky out.
+                if let aim = flareModel.aim, flareModel.isGuiding {
+                    FlareAimGuideView(
+                        aim: aim,
+                        showBelowHorizon: settings.showBelowHorizon,
+                        onDisableOcclusion: { settings.showBelowHorizon = true },
+                        onCancel: { flareModel.cancelAim(showBelowHorizon: showBelowHorizon) }
+                    )
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 10)
+                } else if flow.isChromeVisible {
+                    // The PiP orrery only exists while the chrome is up — during
+                    // the intro tour its second RealityKit surface must not
+                    // compete with the tour's own non-AR view.
                     OrreryPiP(settings: settings, locationProvider: locationProvider)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.bottom, 10)
                 }
                 ControlBar(
                     showBelowHorizon: $settings.showBelowHorizon,
-                    renderMode: $settings.renderMode
+                    renderMode: $settings.renderMode,
+                    isFlareDropped: flareModel.isDropped,
+                    flareDistanceKm: flareModel.distanceKm,
+                    canDropFlare: locationProvider.fix != nil,
+                    isAwaitingAim: flareModel.isGuiding
+                        && !flareModel.isArmed(showBelowHorizon: settings.showBelowHorizon),
+                    onToggleFlare: toggleFlare
                 )
             }
             .padding()
@@ -88,6 +111,13 @@ struct ContentView: View {
                 try? await Task.sleep(for: .seconds(SkyRenderer.updateInterval))
             }
         }
+        .task(id: flareModel.isGuiding) {
+            guard flareModel.isGuiding else { return }
+            while !Task.isCancelled {
+                flareModel.track(cameraForward: renderer.cameraForward)
+                try? await Task.sleep(for: Self.aimSampleInterval)
+            }
+        }
         .sheet(isPresented: $isShowingSettings) {
             SettingsView(settings: settings, onReplayIntro: onReplayIntro)
         }
@@ -112,12 +142,18 @@ struct ContentView: View {
             altitudeMeters: fix.altitudeMeters
         )
         let config = settings.renderConfiguration
+        let flare = flareModel.dropped
 
         // Heavy astronomy/geometry runs off the main actor so it never stalls the
         // render loop; only the entity mutation below touches RealityKit.
         let computeStart = Date.now
         let frame = await Task.detached(priority: .userInitiated) {
-            SkyRenderer.computeFrame(observer: observer, futureObserver: futureObserver, configuration: config)
+            SkyRenderer.computeFrame(
+                observer: observer,
+                futureObserver: futureObserver,
+                configuration: config,
+                flare: flare
+            )
         }.value
         let computeMs = Date.now.timeIntervalSince(computeStart) * 1_000
 
@@ -139,11 +175,35 @@ struct ContentView: View {
         let renderMs = Date.now.timeIntervalSince(renderStart) * 1_000
 
         isNearRingWindowVisible = frame.stats.isNearRingWindowVisible
+        // Carries the flare's distance and — since the drop point drifts 15°/hour
+        // with the Earth's turn — the aim guide's live target.
+        flareModel.apply(frame)
         logTelemetry(
             stats: frame.stats,
             observer: observer,
             config: config,
             timing: TickTiming(computeMs: computeMs, renderMs: renderMs, periodMs: period * 1_000)
+        )
+    }
+
+    /// The flare button. Needs a real fix — an intro fallback coordinate would
+    /// drop the marker somewhere the user has never been.
+    private func toggleFlare() {
+        guard let fix = locationProvider.fix else { return }
+        flareModel.toggle(
+            fix: fix,
+            cameraForward: renderer.cameraForward,
+            showBelowHorizon: showBelowHorizon
+        )
+    }
+
+    /// A writable handle on the occlusion setting, so the flare model can clear
+    /// the Earth out of the way when the drop point is under the horizon — and
+    /// put it back afterwards.
+    private var showBelowHorizon: Binding<Bool> {
+        Binding(
+            get: { settings.showBelowHorizon },
+            set: { settings.showBelowHorizon = $0 }
         )
     }
 

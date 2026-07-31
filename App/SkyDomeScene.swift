@@ -19,6 +19,7 @@ final class SkyDomeScene {
     private let edgesMesh = CubeEdgesMesh.make()
     private let sunEntity: ModelEntity
     private var edgeEntities: [LatticeNode: ModelEntity] = [:]
+    private var flareEntities: FlareEntities?
 
     init() {
         var sunMaterial = UnlitMaterial(color: .systemOrange)
@@ -75,12 +76,30 @@ final class SkyDomeScene {
         }
 
         applyLines(frame)
+        applyFlare(frame.flare, animationDuration: animationDuration)
 
         sunEntity.position = frame.sunPosition
         sunEntity.scale = SIMD3(repeating: frame.sunScale)
         if sunEntity.parent == nil {
             skyAnchor.addChild(sunEntity)
         }
+    }
+
+    /// Adds, updates, or tears down the dropped flare. A nil placement covers
+    /// both "no flare" and "just dropped, not yet clear of the observer".
+    private func applyFlare(_ placement: FlarePlacement?, animationDuration: TimeInterval) {
+        guard let placement else {
+            flareEntities?.root.removeFromParent()
+            flareEntities = nil
+            return
+        }
+        let isNew = flareEntities == nil
+        let flare = flareEntities ?? FlareEntities()
+        if isNew {
+            flareEntities = flare
+            skyAnchor.addChild(flare.root)
+        }
+        flare.apply(placement, animationDuration: animationDuration, isNew: isNew)
     }
 
     private func addEntity(for node: LatticeNode) -> ModelEntity {

@@ -1,14 +1,28 @@
 import SwiftUI
 
-/// The bottom overlay row: layout mode pill centered, Earth-occlusion toggle
-/// on the right.
+/// The bottom overlay row: flare drop/remove on the left, layout mode pill
+/// centered, Earth-occlusion toggle on the right.
 struct ControlBar: View {
     @Binding var showBelowHorizon: Bool
     @Binding var renderMode: RenderMode
+    let isFlareDropped: Bool
+    let flareDistanceKm: Double?
+    let canDropFlare: Bool
+    /// The aim guide is up and the camera hasn't come round yet.
+    let isAwaitingAim: Bool
+    let onToggleFlare: () -> Void
 
     var body: some View {
-        ZStack {
-            HStack {
+        ZStack(alignment: .bottom) {
+            HStack(alignment: .bottom) {
+                FlareControl(
+                    isDropped: isFlareDropped,
+                    distanceKm: flareDistanceKm,
+                    canDrop: canDropFlare,
+                    isAwaitingAim: isAwaitingAim,
+                    onToggle: onToggleFlare
+                )
+
                 Spacer()
 
                 Button {

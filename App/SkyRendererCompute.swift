@@ -9,38 +9,41 @@ extension SkyRenderer {
     nonisolated static func computeFrame(
         observer: ObserverState,
         futureObserver: ObserverState,
-        configuration: RenderConfiguration
+        configuration: RenderConfiguration,
+        flare: DroppedFlare?
     ) -> SkyFrame {
-        // X-ray mode drops the horizon cutoff entirely; below-horizon nodes
-        // already render ghost-style, which reads as "behind the planet".
-        let minElevation: Double
-        if configuration.showBelowHorizon {
-            minElevation = -Double.pi
-        } else if configuration.showGhostNodes {
-            minElevation = -configuration.ghostBandDegrees * .pi / 180
-        } else {
-            minElevation = 0
-        }
+        let minElevation = horizonCutoff(for: configuration)
         let current = visible(for: observer, configuration: configuration, minElevation: minElevation)
         let future = visible(for: futureObserver, configuration: configuration, minElevation: minElevation)
         let futureByNode = Dictionary(uniqueKeysWithValues: future.map { ($0.node, $0) })
 
+        // current is sorted nearest first, so the span is first...last.
         let minDistance = current.first?.distanceKm ?? 0
         let maxDistance = current.last?.distanceKm ?? 0
+        let range = DistanceRange(minKm: minDistance, spanKm: maxDistance - minDistance)
 
         let placements = buildPlacements(
             current: current,
             futureByNode: futureByNode,
             observer: observer,
-            configuration: configuration
+            configuration: configuration,
+            range: range
         )
         let standardLineData = lineData(
             observer: observer,
             configuration: configuration,
             minElevation: minElevation,
-            range: DistanceRange(minKm: minDistance, spanKm: maxDistance - minDistance)
+            range: range
         )
-
+        let droppedFlare = flare.flatMap {
+            flarePlacement(
+                flare: $0,
+                observer: observer,
+                futureObserver: futureObserver,
+                range: range,
+                minElevation: minElevation
+            )
+        }
         let orientation = latticeOrientation(for: observer)
 
         let sun = Firmament.skyDirection(toHeliocentricKm: .zero, observer: observer)
@@ -58,20 +61,28 @@ extension SkyRenderer {
             latticeOrientation: orientation,
             sunPosition: sunPosition,
             sunScale: sunScale,
+            flare: droppedFlare,
+            flareDropTarget: flareDropTarget(observer: observer, futureObserver: futureObserver),
             stats: stats
         )
+    }
+
+    /// The elevation below which nothing renders. X-ray mode drops the cutoff
+    /// entirely; below-horizon nodes already render ghost-style, which reads as
+    /// "behind the planet".
+    private nonisolated static func horizonCutoff(for configuration: RenderConfiguration) -> Double {
+        if configuration.showBelowHorizon { return -Double.pi }
+        if configuration.showGhostNodes { return -configuration.ghostBandDegrees * .pi / 180 }
+        return 0
     }
 
     private nonisolated static func buildPlacements(
         current: [SkyPosition],
         futureByNode: [LatticeNode: SkyPosition],
         observer: ObserverState,
-        configuration: RenderConfiguration
+        configuration: RenderConfiguration,
+        range: DistanceRange
     ) -> [NodePlacement] {
-        // current is sorted nearest first, so the span is first...last.
-        let minDistance = current.first?.distanceKm ?? 0
-        let maxDistance = current.last?.distanceKm ?? 0
-        let range = DistanceRange(minKm: minDistance, spanKm: maxDistance - minDistance)
         let effectiveEdgeKm = scaleInfo(for: configuration).cubeEdgeKm
         let sunwardDirection = -observer.heliocentricPositionKm.normalized
         let reachKm = max(range.minKm + range.spanKm, 1)
@@ -345,7 +356,8 @@ extension SkyRenderer {
     }
 
     /// AR world frame under .gravityAndHeading: +x east, +y up, +z south.
-    private nonisolated static func domeDirection(azimuthRadians: Double, elevationRadians: Double) -> SIMD3<Float> {
+    /// Shared with the flare placement, which maps onto the same dome.
+    nonisolated static func domeDirection(azimuthRadians: Double, elevationRadians: Double) -> SIMD3<Float> {
         let cosElevation = cos(elevationRadians)
         return SIMD3<Float>(
             Float(sin(azimuthRadians) * cosElevation),
@@ -354,7 +366,7 @@ extension SkyRenderer {
         )
     }
 
-    private nonisolated static func domeRadius(forDistanceKm distance: Double, range: DistanceRange) -> Double {
+    nonisolated static func domeRadius(forDistanceKm distance: Double, range: DistanceRange) -> Double {
         let normalized = range.spanKm > 0
             ? min(max((distance - range.minKm) / range.spanKm, 0), 1)
             : 0.5

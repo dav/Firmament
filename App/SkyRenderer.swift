@@ -64,6 +64,10 @@ nonisolated struct SkyFrame: Sendable {
     let latticeOrientation: simd_quatf
     let sunPosition: SIMD3<Float>
     let sunScale: Float
+    /// The user's dropped flare, when one exists and has cleared the observer.
+    let flare: FlarePlacement?
+    /// Where a flare dropped this instant would fall to — the aim guide's target.
+    let flareDropTarget: FlareDropTarget
     let stats: RenderStats
 }
 
@@ -167,6 +171,13 @@ final class SkyRenderer {
         configuration.worldAlignment = .gravityAndHeading
         configuration.planeDetection = []
         return configuration
+    }
+
+    /// Where the device is pointed, as a unit vector in the AR world frame
+    /// (+x east, +y up, +z south) — the same frame the dome is built in, so it
+    /// compares directly against a sky direction.
+    var cameraForward: SIMD3<Float> {
+        arView.cameraTransform.rotation.act(SIMD3<Float>(0, 0, -1))
     }
 
     /// Applies a precomputed frame to the live dome.
