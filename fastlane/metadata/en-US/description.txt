@@ -1,0 +1,5 @@
+Dav's Celestial Firmament is an iPhone augmented-reality app that threads the Earth's orbital path through the solar system with an enormous, perfectly regular lattice of markers, centered on the sun and fixed in space. It draws the ones above your horizon over the live camera view of the sky, exactly where they are.
+
+The lattice never moves. You do. Earth spins once a day and races along its orbit at about 30 km/s, so the you are constantly sweeping past the grid. Now, for the first time, you can watch that motion happen. A solar ephemeris accurate to about an arcminute computes your position relative to the Sun, the lattice origin, from your GPS coordinates and the current time.
+
+Three layouts show the same idea from different angles: Grid fills space with a regular lattice of cubes; Tube floats Earth inside a ring-lined bore following its orbit around the Sun; Ride threads that same tunnel through you as the center, rings arching overhead just tens of kilometers up. A narrated intro tour explains it all on first launch, and a picture-in-picture orrery keeps you oriented, showing Earth from afar, moving through the very nodes hanging in your sky.

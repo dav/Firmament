@@ -1,0 +1,5 @@
+Drop a flare.
+
+Tap the flare button to leave a marker at your own position in the lattice. It stays exactly where you dropped it — fixed in space, not to the Earth — so as the planet carries you along its orbit at about 30 km/s, the flare falls astern within seconds, its distance climbing beside it in the sky.
+
+The drop point is set by the direction the Earth is travelling, not by wherever your phone happens to be pointed, so the app turns you toward it first: raise the phone, follow the guide, and the button arms once you are facing the right patch of sky.

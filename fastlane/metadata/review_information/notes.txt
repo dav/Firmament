@@ -1,0 +1,1 @@
+AR astronomy app. Works indoors: markers render over the camera view regardless of surroundings; disable the  'occlusion' toggle (bottom right) to also show markers below the horizon. A narrated intro tour plays on first launch and can be skipped. No account needed.

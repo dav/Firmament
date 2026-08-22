@@ -8,3 +8,14 @@ xcuserdata/
 
 # Local Claude Code settings
 .claude/settings.local.json
+
+# fastlane scratch output. The metadata/ and screenshots/ trees ARE tracked —
+# they are the listing, kept in the repo on purpose.
+fastlane/report.xml
+fastlane/README.md
+fastlane/test_output/
+
+# App Store review contact number. fastlane reads it from the working tree when
+# it uploads, so review still gets it — it just never reaches this public repo,
+# where a personal phone number would be permanent.
+fastlane/metadata/review_information/phone_number.txt

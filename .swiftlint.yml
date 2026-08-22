@@ -1,7 +1,14 @@
+parent_config: ../ProjectTemplates/apple-release/swiftlint-base.yml
+
+# Replaces the shared list rather than adding to it, so the common entries are
+# repeated here. See the comment in swiftlint-base.yml.
 excluded:
+  - build
+  - DerivedData
+  - "**/.build"
+  - tmp
   - FirmamentCore/.build
   - Firmament.xcodeproj
-  - tmp
 
 identifier_name:
   excluded:
