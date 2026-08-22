@@ -179,23 +179,35 @@ body {
     max-width: 44rem;
 }
 
-/* The lattice beats are dense enough to swallow serif text whole. A soft
-   radial scrim, sized to the panel rather than drawn as a box, buys the
-   contrast back without putting a card between the reader and the scene. */
+/* The scrim: a blurred slab, not a gradient.
+
+   The lattice beats are dense enough to swallow serif text whole, so the copy
+   needs something behind it — but something that reads as shading, not as a
+   card placed between the reader and the scene.
+
+   The obvious answer is a radial-gradient, and it was one until it kept slicing
+   the Sun in half. A gradient is sized farthest-corner by default, so along the
+   short axis of a wide box it is still around 40% opaque where the element's
+   bounds clip it — a hard edge, invisible over the lattice and glaring the
+   moment it crosses the brightest object in the scene. Sizing the ellipse to
+   fade out inside the box instead just moves the problem: the ellipse then goes
+   transparent well before the left and right edges, which is exactly where the
+   starts of the lines are.
+
+   Painting a flat slab and blurring it gives even cover across the text and a
+   soft ramp in every direction, with no edge to catch the light. `filter` is
+   ink overflow, so the bleed costs no layout and cannot widen the page — which
+   is what the old inset had to be hand-tuned against the beat's gutter to
+   avoid. */
 .panel::before {
     content: "";
     position: absolute;
-    /* Horizontal bleed stays under the beat's gutter (7vw, and 2.25rem on
-       narrow screens) so the scrim never widens the page. */
-    inset: -2.75rem -2rem;
+    inset: -1.5rem -1rem;
     z-index: -1;
     pointer-events: none;
-    background: radial-gradient(
-        ellipse at center,
-        rgba(5, 7, 12, 0.85) 0%,
-        rgba(5, 7, 12, 0.66) 45%,
-        rgba(5, 7, 12, 0) 78%
-    );
+    border-radius: 2rem;
+    background: rgba(5, 7, 12, 0.72);
+    filter: blur(28px);
 }
 
 .eyebrow {
@@ -674,9 +686,6 @@ textarea.form-control {
 @media (max-width: 640px) {
     .beat {
         padding: 0 2.25rem;
-    }
-    .panel::before {
-        inset: -2rem -1.75rem;
     }
     .beat[data-align="left"],
     .beat[data-align="right"] {
