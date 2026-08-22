@@ -2,147 +2,357 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
         <title>Dav's Celestial Firmament</title>
-        <link rel="stylesheet" href="firmament.css" />
+        <meta
+            name="description"
+            content="An iPhone augmented-reality app that hangs a fixed lattice of markers in the solar system and draws them over your sky, so you can watch the Earth move."
+        />
+        <meta name="theme-color" content="#05070c" />
+
+        <!-- A lattice marker, inline: one request fewer, and the page carries no
+             image it does not draw itself. -->
+        <link
+            rel="icon"
+            href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2305070c'/%3E%3Cg fill='none' stroke='%23d8a94a' stroke-width='1.6'%3E%3Crect x='7' y='11' width='13' height='13'/%3E%3Crect x='12' y='7' width='13' height='13'/%3E%3Cpath d='M7 11l5-4M20 11l5-4M7 24l5-4M20 24l5-4'/%3E%3C/g%3E%3C/svg%3E"
+        />
+
+        <meta property="og:title" content="Dav's Celestial Firmament" />
+        <meta
+            property="og:description"
+            content="Static reference points for a planet that never feels like it is moving."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="firmament-title.jpg?v=4e736e03" />
+
+        <link rel="stylesheet" href="firmament.css?v=14d87bf8" />
     </head>
     <body>
-        <main class="container">
-            <img
-                class="hero-image"
-                src="firmament-title.jpg"
-                alt="Dav's Celestial Firmament"
-            />
-            <p class="lead">
-                Dav's Celestial Firmament is an iPhone augmented-reality app
-                that threads the Earth's orbital path through the solar system
-                with an enormous, perfectly regular lattice of markers, centered
-                on the sun and fixed in space. It draws the ones above your
-                horizon over the live camera view of the sky, exactly where they
-                are.
-            </p>
-            <p>
-                The lattice never moves. You do. Earth spins once a day and
-                races along its orbit at about 30&nbsp;km/s, so the grid is
-                constantly sweeping past you. Now, for the first time, you can
-                <em>watch</em> that motion happen. A solar ephemeris accurate to
-                about an arcminute computes your position relative to the Sun,
-                the lattice origin, from your GPS coordinates and the current
-                time.
-            </p>
-            <p>
-                Three layouts show the same idea from different angles:
-                <strong>Grid</strong> fills space with a regular lattice of
-                cubes; <strong>Tube</strong> floats Earth inside a ring-lined
-                bore following its orbit around the Sun;
-                <strong>Ride</strong> threads that same tunnel through you as
-                the center, rings arching overhead just tens of kilometers up. A
-                narrated intro tour explains it all on first launch, and a
-                picture-in-picture orrery keeps you oriented, showing Earth from
-                afar, moving through the very nodes hanging in your sky.
-            </p>
-            <p class="store-link">
-                <a
-                    href="https://apps.apple.com/us/app/davs-celestial-firmament/id6790281555"
-                    >Download on the App Store</a
-                >
-            </p>
-            <p class="footer-link">
-                <a href="privacy-policy.html">Privacy Policy</a>
-            </p>
+        <!-- The pinned WebGL stage. Everything below scrolls over it. -->
+        <div id="stage" aria-hidden="true">
+            <canvas id="sky"></canvas>
+            <div class="stage-vignette"></div>
+            <div class="stage-grain"></div>
+        </div>
+
+        <noscript>
+            <div class="noscript-banner">
+                This page tells its story with an animated 3D scene. Without
+                JavaScript you still get the words, the App Store link and the
+                support form — just not the sky.
+            </div>
+        </noscript>
+
+        <!-- A thin progress rail for the narrated section. -->
+        <div id="rail" aria-hidden="true"><span id="rail-fill"></span></div>
+
+        <!-- ==================================================================
+             The story. Nine beats, the same nine the app narrates on first
+             launch. Each <section class="beat"> owns a slice of scroll; its
+             data-span is that slice's height in vh, and the 3D scene reads
+             its progress from the same measurement.
+             ================================================================== -->
+        <main id="story">
+            <section class="beat" data-beat="1" data-span="130" data-align="center">
+                <div class="panel panel-hero">
+                    <p class="eyebrow">iPhone &middot; Augmented Reality</p>
+                    <h1>
+                        Dav&rsquo;s<br /><span class="h1-em">Celestial</span
+                        ><br />Firmament
+                    </h1>
+                    <p class="caption">
+                        Imagine you&rsquo;re in a race car, going around a
+                        circular track at night.
+                    </p>
+                    <p class="scrollcue"><span>scroll</span></p>
+                </div>
+            </section>
+
+            <section class="beat" data-beat="2" data-span="100" data-align="left">
+                <div class="panel">
+                    <p class="kicker">Two</p>
+                    <h2>But what if you couldn&rsquo;t see your surroundings?</h2>
+                </div>
+            </section>
+
+            <section class="beat" data-beat="3" data-span="85" data-align="left">
+                <div class="panel">
+                    <p class="kicker">Three</p>
+                    <h2>Or even the track itself?</h2>
+                </div>
+            </section>
+
+            <section class="beat" data-beat="4" data-span="110" data-align="right">
+                <div class="panel">
+                    <p class="kicker">Four</p>
+                    <h2>
+                        Without any static reference points passing by, it&rsquo;s
+                        hard to understand that you&rsquo;re moving at all.
+                    </h2>
+                </div>
+            </section>
+
+            <section class="beat" data-beat="5" data-span="120" data-align="left">
+                <div class="panel">
+                    <p class="kicker">Five</p>
+                    <h2>
+                        The Earth is doing this right now &mdash; zooming along
+                        its orbital track around the Sun at roughly
+                        <span class="num">107,000</span> kilometers per hour.
+                    </h2>
+                </div>
+            </section>
+
+            <section class="beat" data-beat="6" data-span="105" data-align="right">
+                <div class="panel">
+                    <p class="kicker">Six</p>
+                    <h2>But we don&rsquo;t feel like we&rsquo;re moving at all.</h2>
+                </div>
+            </section>
+
+            <section class="beat" data-beat="7" data-span="120" data-align="left">
+                <div class="panel">
+                    <p class="kicker">Seven</p>
+                    <h2>
+                        What if space had static reference points, though? What
+                        if a grid was laid over the Earth&rsquo;s orbital
+                        path&hellip;
+                    </h2>
+                </div>
+            </section>
+
+            <section class="beat" data-beat="8" data-span="110" data-align="right">
+                <div class="panel">
+                    <p class="kicker">Eight</p>
+                    <h2>
+                        &hellip;and markers placed at regular intervals on this
+                        grid, that we could see in the sky?
+                    </h2>
+                </div>
+            </section>
+
+            <section class="beat" data-beat="9" data-span="150" data-align="center">
+                <div class="panel">
+                    <p class="kicker">Nine</p>
+                    <h2>
+                        Now you can look out into the solar system and watch the
+                        markers going past at
+                        <span class="num">30&nbsp;km/second</span>.
+                    </h2>
+                </div>
+            </section>
+
+            <!-- One viewport of tail, so the story's scroll range is exactly the
+                 sum of the beat spans. The 3D scene relies on this. -->
+            <div class="story-tail">
+                <p class="tail-line">That is the whole idea.</p>
+            </div>
         </main>
 
-        <section class="container">
-            <h3>Contact &amp; Support</h3>
-            <p>
-                Ask a question, report a bug, or send feedback about Firmament.
-            </p>
-            <form
-                action="https://api.web3forms.com/submit"
-                method="POST"
-                id="firmament-support-form"
-            >
-                <input
-                    type="hidden"
-                    name="access_key"
-                    value="02b294b3-496a-4b54-8cec-c427aad4de36"
-                />
-                <input
-                    type="hidden"
-                    name="subject"
-                    value="Firmament: support request"
-                />
-                <input
-                    type="hidden"
-                    name="from_name"
-                    value="Firmament support form"
-                />
+        <!-- ==================================================================
+             The product. Ordinary page, scrolling over a dimmed lattice.
+             ================================================================== -->
+        <div id="content">
+            <section class="sheet" id="what">
+                <p class="kicker">The app</p>
+                <h3>An enormous, perfectly regular lattice &mdash; fixed in space.</h3>
+                <p class="lead">
+                    Dav&rsquo;s Celestial Firmament threads the Earth&rsquo;s
+                    orbital path through the solar system with a lattice of
+                    markers, centered on the Sun and fixed in space. It draws the
+                    ones above your horizon over the live camera view of the sky,
+                    exactly where they are.
+                </p>
+                <p>
+                    The lattice never moves. You do. Earth spins once a day and
+                    races along its orbit at about 30&nbsp;km/s, so the grid is
+                    constantly sweeping past you. Now, for the first time, you can
+                    <em>watch</em> that motion happen. A solar ephemeris accurate
+                    to about an arcminute computes your position relative to the
+                    Sun &mdash; the lattice origin &mdash; from your GPS
+                    coordinates and the current time.
+                </p>
 
-                <div class="form-group">
-                    <label class="form-label" for="support-name"
-                        >Your name</label
+                <ul class="stats">
+                    <li>
+                        <span class="stat-n">30 km/s</span>
+                        <span class="stat-l">Your speed along the orbit</span>
+                    </li>
+                    <li>
+                        <span class="stat-n">~1&prime;</span>
+                        <span class="stat-l">Ephemeris accuracy</span>
+                    </li>
+                    <li>
+                        <span class="stat-n">3</span>
+                        <span class="stat-l">Ways to see the same idea</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="sheet" id="modes">
+                <p class="kicker">Three layouts</p>
+                <h3>The same idea, from three distances.</h3>
+                <div class="cards">
+                    <article class="card">
+                        <h4>Grid</h4>
+                        <p>
+                            Fills space with a regular lattice of cubes. The
+                            plainest statement of the thing: markers everywhere,
+                            evenly spaced, going past.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h4>Tube</h4>
+                        <p>
+                            Floats Earth inside a ring-lined bore that follows its
+                            orbit around the Sun &mdash; the track from the story,
+                            drawn where it actually runs.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h4>Ride</h4>
+                        <p>
+                            Threads that same tunnel through <em>you</em> as the
+                            center, rings arching overhead just tens of kilometers
+                            up. This is the one that gets people.
+                        </p>
+                    </article>
+                </div>
+                <p class="aside">
+                    A narrated intro tour explains it all on first launch, and a
+                    picture-in-picture orrery keeps you oriented &mdash; showing
+                    Earth from afar, moving through the very nodes hanging in your
+                    sky.
+                </p>
+            </section>
+
+            <section class="sheet sheet-cta" id="get">
+                <img
+                    class="hero-image"
+                    src="firmament-title.jpg?v=4e736e03"
+                    alt="Dav's Celestial Firmament"
+                />
+                <p class="store-link">
+                    <a
+                        href="https://apps.apple.com/us/app/davs-celestial-firmament/id6790281555"
+                        >Download on the App Store</a
                     >
+                </p>
+            </section>
+
+            <section class="sheet" id="support">
+                <p class="kicker">Contact &amp; support</p>
+                <h3>Ask a question, report a bug, send feedback.</h3>
+                <form
+                    action="https://api.web3forms.com/submit"
+                    method="POST"
+                    id="firmament-support-form"
+                >
                     <input
-                        class="form-control"
-                        id="support-name"
-                        type="text"
-                        name="name"
-                        autocomplete="name"
-                        required
+                        type="hidden"
+                        name="access_key"
+                        value="02b294b3-496a-4b54-8cec-c427aad4de36"
                     />
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="support-email"
-                        >Your email</label
-                    >
                     <input
-                        class="form-control"
-                        id="support-email"
-                        type="email"
-                        name="email"
-                        autocomplete="email"
-                        required
+                        type="hidden"
+                        name="subject"
+                        value="Firmament: support request"
                     />
-                </div>
+                    <input
+                        type="hidden"
+                        name="from_name"
+                        value="Firmament support form"
+                    />
 
-                <div class="form-group">
-                    <label class="form-label" for="support-topic">Topic</label>
-                    <select class="form-select" id="support-topic" name="topic">
-                        <option value="General question" selected>
-                            General question
-                        </option>
-                        <option value="Bug report">Bug report</option>
-                        <option value="Feature request">Feature request</option>
-                        <option value="Accuracy question">
-                            Accuracy question
-                        </option>
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label class="form-label" for="support-name"
+                            >Your name</label
+                        >
+                        <input
+                            class="form-control"
+                            id="support-name"
+                            type="text"
+                            name="name"
+                            autocomplete="name"
+                            required
+                        />
+                    </div>
 
-                <div class="form-group">
-                    <label class="form-label" for="support-message"
-                        >Message</label
-                    >
-                    <textarea
-                        class="form-control"
-                        id="support-message"
-                        name="message"
-                        rows="5"
-                        required
-                    ></textarea>
-                    <p class="form-help">
-                        Please avoid including passwords or sensitive info.
-                    </p>
-                </div>
+                    <div class="form-group">
+                        <label class="form-label" for="support-email"
+                            >Your email</label
+                        >
+                        <input
+                            class="form-control"
+                            id="support-email"
+                            type="email"
+                            name="email"
+                            autocomplete="email"
+                            required
+                        />
+                    </div>
 
-                <div class="btn-row">
-                    <button class="btn" type="submit">Send message</button>
-                    <span class="btn-note">
-                        We aim to reply within a few days.
-                    </span>
-                </div>
-            </form>
-        </section>
+                    <div class="form-group">
+                        <label class="form-label" for="support-topic">Topic</label>
+                        <select
+                            class="form-select"
+                            id="support-topic"
+                            name="topic"
+                        >
+                            <option value="General question" selected>
+                                General question
+                            </option>
+                            <option value="Bug report">Bug report</option>
+                            <option value="Feature request">
+                                Feature request
+                            </option>
+                            <option value="Accuracy question">
+                                Accuracy question
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="support-message"
+                            >Message</label
+                        >
+                        <textarea
+                            class="form-control"
+                            id="support-message"
+                            name="message"
+                            rows="5"
+                            required
+                        ></textarea>
+                        <p class="form-help">
+                            Please avoid including passwords or sensitive info.
+                        </p>
+                    </div>
+
+                    <div class="btn-row">
+                        <button class="btn" type="submit">Send message</button>
+                        <span class="btn-note">
+                            We aim to reply within a few days.
+                        </span>
+                    </div>
+                </form>
+            </section>
+
+            <footer class="site-footer">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <span class="dot">&middot;</span>
+                <span>&copy; Dav Yaginuma</span>
+            </footer>
+        </div>
+
+        <script src="vendor/gsap.min.js?v=28033e44"></script>
+        <script src="vendor/ScrollTrigger.min.js?v=ad33c2df"></script>
+        <script src="vendor/lenis.min.js?v=0bf174d3"></script>
+        <script type="importmap">
+            { "imports": { "three": "./vendor/three.module.min.js?v=f7cee3c7" } }
+        </script>
+        <script type="module" src="js/story.js?v=9d35ef2e"></script>
     </body>
 </html>
