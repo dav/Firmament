@@ -16,6 +16,26 @@ settings:
     SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
     IPHONEOS_DEPLOYMENT_TARGET: "26.0"
     TARGETED_DEVICE_FAMILY: "1"
+  # Release-only, and declared here rather than passed on the xcodebuild command
+  # line. A command-line build-setting override applies to every target in the
+  # graph including SwiftPM dependencies, which Xcode compiles with
+  # -suppress-warnings; the two are mutually exclusive and the build dies before
+  # first-party code compiles. Declared in the project it reaches the Xcode
+  # targets only, which is exactly what is wanted here.
+  #
+  # Release-scoped on purpose: applied to all configurations it would make
+  # `make build` and `make test` warnings-fatal too, so a warning appearing
+  # mid-refactor would stop the build rather than annotate it.
+  #
+  # Project level rather than per-target, so future targets inherit it.
+  #
+  # This does NOT cover FirmamentCore — a setting declared here never reaches
+  # SwiftPM package targets. That half lives in FirmamentCore/Package.swift as
+  # .treatAllWarnings(as: .error, .when(configuration: .release)). Both are
+  # needed; neither covers the other's code.
+  configs:
+    Release:
+      SWIFT_TREAT_WARNINGS_AS_ERRORS: YES
 targets:
   Firmament:
     type: application
